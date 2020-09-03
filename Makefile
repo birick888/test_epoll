@@ -1,5 +1,5 @@
 CC = gcc
-CFLAGS  = -g -Wall
+CFLAGS  = -g -Wall -std=gnu99
 LIBS = -lpthread
 
 #client: client.c
@@ -8,7 +8,7 @@ LIBS = -lpthread
 #	$(CC) $(CFLAGS) -o server server.c $(LIBS)
 
 all: server.c client.c 
-	gcc -g -Wall -o server server.c $(LIBS)
-	gcc -g -Wall -o client client.c
+	$(CC) $(CFLAGS) -o server server.c $(LIBS)
+	$(CC) $(CFLAGS) -o client client.c $(LIBS)
 clean:
 	-rm -f server client *.o core *.core
